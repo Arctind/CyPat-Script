@@ -1,0 +1,121 @@
+#!/bin/bash
+echo -e "\[36m---------Protocol---------\e[0m"
+if grep "^Protocol" /etc/ssh/sshd_config
+then
+  sed -i "s/Protocol.*/Protocol 2/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "Protocol 2"
+  service sshd reload
+fi
+
+echo -e "\[36m---------LogLevel---------\e[0m"
+if grep "^LogLevel" /etc/ssh/sshd_config
+then
+  sed -i "s/LogLevel.*/LogLevel INFO/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "LogLevel INFO"
+  service sshd reload
+fi
+
+echo -e "\[36m---------X11Forwarding---------\e[0m"
+if grep "^X11Forwarding" /etc/ssh/sshd_config
+then
+  sed -i "s/X11Forwarding.*/X11Forwarding no/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "X11Forwarding no"
+  service sshd reload
+fi
+
+echo -e "\[36m---------IgnoreRhosts---------\e[0m"
+if grep "^IgnoreRhosts" /etc/ssh/sshd_config
+then
+  sed -i "s/IgnoreRhosts.*/IgnoreRhosts yes/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "IgnoreRhosts yes"
+  service sshd reload
+fi
+
+echo -e "\[36m---------HostbasedAuthentication---------\e[0m"
+if grep "^HostbasedAuthentication" /etc/ssh/sshd_config
+then
+  sed -i "s/HostbasedAuthentication.*/HostbasedAuthentication no/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "HostbasedAuthentication no"
+  service sshd reload
+fi
+
+echo -e "\[36m---------PermitRootLogin---------\e[0m"
+if grep "^PermitRootLogin" /etc/ssh/sshd_config
+then
+  sed -i "s/PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "PermitRootLogin no"
+  service sshd reload
+fi
+
+echo -e "\[36m---------PermitEmptyPasswords---------\e[0m"
+if grep "^PermitEmptyPasswords" /etc/ssh/sshd_config
+then
+  sed -i "s/PermitEmptyPasswords.*/PermitEmptyPasswords no/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "PermitEmptyPasswords no"
+  service sshd reload
+fi
+
+echo -e "\[36m---------PermitUserEnvironment---------\e[0m"
+if grep "^PermitUserEnvironment" /etc/ssh/sshd_config
+then
+  sed -i "s/PermitUserEnvironment.*/PermitUserEnvironment no/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "PermitUserEnvironment no"
+  service sshd reload
+fi
+
+echo -e "\[36m---------ClientAliveInterval---------\e[0m"
+if grep "^ClientAliveInterval" /etc/ssh/sshd_config
+then
+  sed -i "s/ClientAliveInterval.*/ClientAliveInterval 300/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "ClientAliveInterval 300"
+  service sshd reload
+fi
+
+echo -e "\[36m---------ClientAliveCountMax---------\e[0m"
+if grep "^ClientAliveCountMax" /etc/ssh/sshd_config
+then
+  sed -i "s/ClientAliveCountMax.*/ClientAliveCountMax 0/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "ClientAliveCountMax 0"
+  service sshd reload
+fi
+
+echo -e "\[36m---------LoginGraceTime---------\e[0m"
+if grep "^LoginGraceTime" /etc/ssh/sshd_config
+then
+  sed -i "s/LoginGraceTime.*/LoginGraceTime 60/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "LoginGraceTime 60"
+  service sshd reload
+fi
+
+echo -e "\[36m---------Banner---------\e[0m"
+if grep "^Banner" /etc/ssh/sshd_config
+then
+  sed -i "s/Banner.*/Banner /etc/issue.net/g" /etc/ssh/sshd_config
+  service sshd reload
+else
+  echo "Banner /etc/issue.net"
+  service sshd reload
+fi
+
